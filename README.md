@@ -1,6 +1,17 @@
 # wc_filter
 Woocommerce filter plugin 
 
+<br>
+
+<h3>About:</h3>
+wc_filter is plugin for filter woocoomerce products. Works much faster then other filter plugins. Flexible and easy to set up.
+1. Support for multiple types: the standard list (checkboxes), drop-down list, a range of values, the color (or any type that can display an icon, such as a country)
+2. Ability to specify the dimension for label, also can hide label
+3. Set "or" and "and" query type for filtration of several parameters
+
+<br><br>
+
+
 <h3>How to install:</h3>
 
 <b>1.</b> Add in <b>"header.php"</b>
