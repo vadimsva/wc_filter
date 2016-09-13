@@ -1,0 +1,149 @@
+/* filter */
+#page #filterToggle {display:none;position:absolute;right:10px;margin-top:3px}
+#filterBlock {}
+
+
+/* filter */
+/* checkbox & radio & toggle */
+label.radio,
+label.checkbox,
+label.toggle {display:inline-block;min-height:20px;font-weight:bold;line-height:34px;font-size:14px;clear:both;text-align:left;cursor:pointer}
+label *, :before, :after {box-sizing:border-box}
+.radio+.radio, .checkbox+.checkbox {margin-top:-5px}
+
+.radio input,
+.checkbox input,
+.toggle input {visibility:hidden;position:absolute}
+.radio input~span,
+.checkbox input~span,
+.toggle input~span {position:relative;margin:7px 5px 7px 0;display:inline-block;float:left;width:20px;height:20px}
+.toggle input~span {margin:7px 0 7px 5px;float:right}
+
+.radio input~span:after {content:'';position:absolute;width:20px;height:20px;background:#fff;border:1px solid #bbb;border-radius:50%}
+.radio input~span:before {content:'';position:absolute;width:10px;height:10px;top:5px;left:5px;background:#007ec4;border-radius:50%;z-index:1;transform:scale(0,0);transition:all .15s ease-in-out}
+.radio input:hover+span:after {border-color:#999;box-shadow:0 0 0 3px rgba(218, 218, 218, .5)}
+.radio input:checked~span:before {transform:scale(1,1)}
+
+
+.checkbox input~span:after {content:'';position:absolute;width:20px;height:20px;background:#fff;border:1px solid #bbb}
+.checkbox input~span:before,
+.checkbox.grayed input~span:before {content:'\2714';position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;text-align:center;color:#007ec4;font-size:13px;line-height:20px;z-index:1;transform:scale(0);transition:all .15s ease-in-out}
+.checkbox.grayed input~span:before {color:#aaa}
+
+.checkbox input:checked~span:before {transform:scale(1)}
+
+.checkbox input:hover~span:after {border-color:#999;box-shadow:0 0 0 3px rgba(218, 218, 218, .5)}
+.checkbox.fillbox input~span:before,
+.checkbox.fillbox.grayed input~span:before {content:'';width:10px;height:10px;background:#007ec4}
+.checkbox.fillbox.grayed input~span:before {background:#aaa}
+
+.toggle input~span {width:40px}
+.toggle input~span:after {content:'';position:absolute;width:100%;height:12px;background:#ccc;border-radius:6px;top:4px;transition:all .15s ease-in-out}
+.toggle input~span:before {content:'';position:absolute;width:20px;height:20px;background:#fff;border:1px solid #ccc;border-radius:50%;z-index:1;right:20px;transition:all .15s ease-in-out}
+.toggle input:checked~span:after {background:rgba(102, 175, 233, .3)}
+.toggle input:checked~span:before {right:0;background:#007ec4;border-color:#007ec4}
+.toggle input:hover~span:before {border-color:#999;box-shadow:0 0 0 3px rgba(218, 218, 218, .5)}
+.toggle input:checked:hover~span:before {border-color:#007ec4;box-shadow:0 0 0 3px rgba(64, 129, 190, .2)}
+.toggle.fillbox input~span:after {height:20px;top:0;border-radius:10px}
+.toggle.fillbox input~span:before {width:18px;height:18px;top:1px;border-color:#fff}
+.toggle.fillbox input:checked~span:before {right:1px;border-color:#007ec4}
+.toggle.left input~span {float:left;margin:7px 5px 7px 0}
+
+.radio.disabled,
+.checkbox.disabled,
+.toggle.disabled {color:#bbb}
+.radio.disabled input~span:after,
+.checkbox.disabled input~span:after {background:transparent;border-color:#ddd}
+.radio.disabled input~span:before,
+.checkbox.disabled input~span:before {opacity:.5}
+.radio.disabled input:hover~span:after,
+.checkbox.disabled input:hover~span:after {border-color:#ddd!important;box-shadow:none!important}
+.toggle.disabled input~span:after {background:#eee}
+.toggle.disabled input~span:before {background:#fafafa;border-color:#ddd!important}
+.toggle.disabled input:checked~span:after {background:rgba(156, 202, 239, .3)}
+.toggle.disabled input:checked~span:before {background:#77B6D9;border-color:#77B6D9!important}
+.toggle.disabled input:hover~span:before {box-shadow:none!important}
+
+
+
+.checkbox input~span:after {border-color:#D0B2C3}
+.checkbox input:checked~span:after {border-color:#f60}
+.checkbox.fillbox input:checked~span:before, .checkbox.fillbox.grayed input~span:before {background:#f60}
+
+#wc_filter {position:relative}
+
+#wc_filter .wc_filter_caption {font-weight:bold;font-size:14px;color:#000}
+#wc_filter .wp_filter_init {margin-left:10px;color:#777}
+#wc_filter .filterToggle {display:none;margin-top:10px;cursor:pointer;color:#f60;border-bottom:1px dotted #f60;line-height:16px;font-size:13px}
+#wc_filter .filterToggle:before {content:'';clear:both;display:table}
+#wc_filter .filterToggle:hover {color:#000;border-color:#000}
+#wc_filter .filterToggle:after {content:'Показать все'}
+
+#wc_filter .wc_filter_list {margin-bottom:20px;border-bottom:1px solid #eee;padding-bottom:10px}
+#wc_filter .wc_filter_list:after {content:'';clear:both;display:table}
+#wc_filter .wc_filter_list select {width:100%}
+#wc_filter .wc_filter_list select.range {width:calc(50% - 5px);float:left}
+#wc_filter .wc_filter_list select.range+select.range {margin-left:10px}
+#wc_filter .wc_filter_list label {display:block;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:5px;margin-left:-5px}
+#wc_filter .wc_filter_list label.active {}
+#wc_filter .wc_filter_list label.hidden {}
+#wc_filter .wc_filter_list.expand > .filterToggle:after {content:'Свернуть список'}
+#wc_filter .wc_filter_list > label:nth-child(n+5) {display:none}
+#wc_filter .wc_filter_list > label:nth-child(n+5) ~ .filterToggle {display:inline-block}
+#wc_filter .wc_filter_list.expand > label {display:block}
+
+#wc_filter .wc_filter_count {display:inline-block;float:right;font-size:90%;color:#777;display:none}
+
+#wc_filter .wc_filter_list.nolabel .checkbox input~span {display:none}
+#wc_filter .wc_filter_list.nolabel .checkbox input:checked~.wc_filter_color {border-color:#fff!important;box-shadow:0 0 0 2px #f60}
+#wc_filter .wc_filter_list.nolabel .checkbox {font-size:0;display:inline-block}
+#wc_filter .wc_filter_list.nolabel .filterToggle {display:none!important}
+
+
+
+#wc_filter .wc_filter_color {display:inline-block;width:20px;height:20px;border:1px solid #ccc;margin:7px 5px 7px 0;vertical-align:top;background-repeat:no-repat;background-size:cover}
+#wc_filter .wc_filter_color[data-color="белый"] {background:#fff}
+#wc_filter .wc_filter_color[data-color="желтый"] {background:#eeee22}
+#wc_filter .wc_filter_color[data-color="зеленый"] {background:#4EA23A}
+#wc_filter .wc_filter_color[data-color="золотой"] {background:#edbd00}
+#wc_filter .wc_filter_color[data-color="коричневый"] {background:#A0795C}
+#wc_filter .wc_filter_color[data-color="коричневый; красный"] {background:#A7553D}
+#wc_filter .wc_filter_color[data-color="красный"] {background:#F53700}
+#wc_filter .wc_filter_color[data-color="кремовый бежевый"] {background:#EFDFDA}
+#wc_filter .wc_filter_color[data-color="мультиколор"] {background:linear-gradient(to top, red 0%, orange 20%, yellow 40%, green 60%, blue 80%, violet 100%)}
+#wc_filter .wc_filter_color[data-color="оранжевый"] {background:#f60}
+#wc_filter .wc_filter_color[data-color="розовый бордовый"] {background:#EFBBBB}
+#wc_filter .wc_filter_color[data-color="серебряный"] {background:#EAEAEA}
+#wc_filter .wc_filter_color[data-color="серый"] {background:#A5A5A5}
+#wc_filter .wc_filter_color[data-color="синий голубой"] {background:#2BB2E6}
+#wc_filter .wc_filter_color[data-color="сиреневый фиолетовый"] {background:#8822D6}
+#wc_filter .wc_filter_color[data-color="черный"] {background:#000}
+
+#wc_filter .wc_filter_color[data-color="Австрия"] {background-image:url("img/wc_filter/flags/as.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Бельгия"] {background-image:url("img/wc_filter/flags/be.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Беларусь"] {background-image:url("img/wc_filter/flags/by.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Китай"] {background-image:url("img/wc_filter/flags/cn.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Чехия"] {background-image:url("img/wc_filter/flags/cz.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Голландия"] {background-image:url("img/wc_filter/flags/ho.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Германия"] {background-image:url("img/wc_filter/flags/de.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Италия"] {background-image:url("img/wc_filter/flags/it.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Польша"] {background-image:url("img/wc_filter/flags/po.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Португалия"] {background-image:url("img/wc_filter/flags/pt.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Россия"] {background-image:url("img/wc_filter/flags/ru.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Испания"] {background-image:url("img/wc_filter/flags/sp.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Турция"] {background-image:url("img/wc_filter/flags/tu.gif");width:24px}
+#wc_filter .wc_filter_color[data-color="Украина"] {background-image:url("img/wc_filter/flags/ua.gif");width:24px}
+
+.woocommerce .price_slider_wrapper {margin-top:10px}
+.woocommerce .widget_price_filter .price_slider_amount > button.button {display:none!important}
+.woocommerce .widget_price_filter .price_slider_amount {text-align:center!important;margin-top:-10px}
+.woocommerce .widget_price_filter .price_slider_amount .price_label,
+.woocommerce .widget_price_filter .price_slider_amount .price_label span {font-size:13px;padding-top:15px}
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {background:#CFDEDD!important;height:4px}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range {background:#FF6600!important}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle {background:url("img/wc_filter/price_slider_ico.png") no-repeat!important;width:11px;height:27px;top:-1px;margin-left:-5px}
+
+
+#wc_filter .wc_filter_buttons {text-align:center;margin-top:20px}
+#wc_filter_reset_but {width:100%;margin-bottom:10px;background:#ACB3B9;border-color:#ACB3B9}
+#wc_filter_but {width:100%;padding:10px 30px;font-size:15px}
